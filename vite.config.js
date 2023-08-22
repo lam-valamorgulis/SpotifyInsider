@@ -6,9 +6,7 @@ import nodeGlobalsPolyfill from '@esbuild-plugins/node-globals-polyfill';
 // https://vitejs.dev/config/
 export default {
   plugins: [react(), 
-            notifier(),
-            GlobalsPolyfills(),
-            nodeGlobalsPolyfill()],
+            notifier()],
   server: {
     host: '0.0.0.0',
   },
@@ -29,11 +27,12 @@ export default {
         GlobalsPolyfills({
           process: true,
           buffer: true,
-          global: true,
-          dir: false,
         }),
         nodeGlobalsPolyfill()
       ],
+      define: {
+        global: 'globalThis',
+      },
     },
   },
 };
