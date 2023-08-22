@@ -137,7 +137,7 @@ export const alertExpireToken = (payload) => {
         )
     setTimeout(() => {
       localStorage.clear()
-      window.location.href = 'https://ypotify.laamdang.repl.co/landing';
+      window.location.href = 'https://spotify-insider.vercel.app/landing';
     }, 3000);
   } else {
     toast.error(payload);
