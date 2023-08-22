@@ -49,7 +49,4 @@ export default defineConfig({
         util: "util",
     },
   },
-  nodeResolve({
-    extensions: [".js", ".jsx"],
-  }),
 });
