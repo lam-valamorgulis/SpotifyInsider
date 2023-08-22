@@ -47,7 +47,7 @@ export const AUTH_QUERY_PARAMS = new URLSearchParams({
     response_type: "code",
     client_id: CLIENT_ID,
     scope: 'user-follow-read playlist-modify-private playlist-modify-public user-top-read streaming user-read-email user-read-private',
-    redirect_uri: 'https://spotify-insider.vercel.app/landing',
+    redirect_uri: 'https://spotify-insider.vercel.app/callback',
   })
 
 // Function to simulate token exchange with a refresh token
