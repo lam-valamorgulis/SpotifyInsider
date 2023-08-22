@@ -25,8 +25,7 @@ export default defineConfig({
       nodePolyfills( /* options */ )
     ]
   }),
-  plugins: [
-    nodePolyfills({
+  plugins: [react(), commonjs(), nodePolyfills({
       // To exclude specific polyfills, add them to this list.
       exclude: [
         'fs', // Excludes the polyfill for `fs` and `node:fs`.
@@ -39,21 +38,17 @@ export default defineConfig({
       },
       // Whether to polyfill `node:` protocol imports.
       protocolImports: true,
-    }),
-  ],
-  plugins: [react(), commonjs(), nodePolyfills()],
+    }),],
   resolve: {
-    alias: {
-        process: "process/browser",
-        buffer: "buffer",
-        crypto: "crypto-browserify",
-        stream: "stream-browserify",
-        assert: "assert",
-        http: "stream-http",
-        https: "https-browserify",
-        os: "os-browserify",
-        url: "url",
-        util: "util",
-    },
-  },
+		alias: {
+			'@': path.resolve(__dirname, 'src'),
+		}
+	},
+	build: {
+		rollupOptions: {
+			plugins: [inject({ Buffer: ['Buffer', 'Buffer'] })],
+		},
+	},
+
+  
 });
