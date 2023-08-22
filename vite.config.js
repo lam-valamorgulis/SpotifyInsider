@@ -4,6 +4,7 @@
 import nodePolyfills from "rollup-plugin-polyfill-node";
 import { defineConfig } from "vite";
 import { nodeModulesPolyfillPlugin } from "esbuild-plugins-node-modules-polyfill";
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 
 export default defineConfig({
   optimizeDeps: {
@@ -33,7 +34,7 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
-  plugins: [react(), commonjs()],
+  plugins: [react(), commonjs(), nodePolyfills()],
   resolve: {
     alias: {
         process: "process/browser",
@@ -47,5 +48,8 @@ export default defineConfig({
         url: "url",
         util: "util",
     },
-  }
+  },
+  nodeResolve({
+  extensions: [".js", ".jsx"],
+}),
 });
