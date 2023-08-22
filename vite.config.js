@@ -50,6 +50,6 @@ export default defineConfig({
     },
   },
   nodeResolve({
-  extensions: [".js", ".jsx"],
-}),
+    extensions: [".js", ".jsx"],
+  }),
 });
