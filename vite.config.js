@@ -1,54 +1,32 @@
-/**
- * pnpm add -D esbuild-plugins-node-modules-polyfill rollup-plugin-polyfill-node
- */
-import nodePolyfills from "rollup-plugin-polyfill-node";
-import { defineConfig } from "vite";
-import { nodeModulesPolyfillPlugin } from "esbuild-plugins-node-modules-polyfill";
-import {nodeResolve} from '@rollup/plugin-node-resolve';
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
+import react from "@vitejs/plugin-react";
+import notifier from "vite-plugin-notifier";
 
-export default defineConfig({
+// https://vitejs.dev/config/
+export default {
+  plugins: [react(), notifier()],
+  server: {
+    host: '0.0.0.0',
+  },
+  resolve: {
+    alias: {
+      /** browserify for @jbrowse/react-linear-genome-view */
+      stream: "stream-browserify",
+    },
+  },
   optimizeDeps: {
     esbuildOptions: {
-      // Enable esbuild polyfill plugins
-      plugins: [nodeModulesPolyfillPlugin()],
-    },
-  },
-  build: {
-    rollupOptions: {
-      plugins: [nodePolyfills()],
-    },
-  },
-  rollup({
-    entry: 'main.js',
-    plugins: [
-      nodePolyfills( /* options */ )
-    ]
-  }),
-  plugins: [react(), commonjs(), nodePolyfills({
-      // To exclude specific polyfills, add them to this list.
-      exclude: [
-        'fs', // Excludes the polyfill for `fs` and `node:fs`.
-      ],
-      // Whether to polyfill specific globals.
-      globals: {
-        Buffer: true, // can also be 'build', 'dev', or false
-        global: true,
-        process: true,
+      // Node.js global to browser globalThis
+      define: {
+        global: "globalThis",
       },
-      // Whether to polyfill `node:` protocol imports.
-      protocolImports: true,
-    }),],
-  resolve: {
-		alias: {
-			'@': path.resolve(__dirname, 'src'),
-		}
-	},
-	build: {
-		rollupOptions: {
-			plugins: [inject({ Buffer: ['Buffer', 'Buffer'] })],
-		},
-	},
-
-  
-});
+      // Enable esbuild polyfill plugins
+      plugins: [
+        GlobalsPolyfills({
+          process: true,
+          buffer: true,
+        }),
+      ],
+    },
+  },
+};
