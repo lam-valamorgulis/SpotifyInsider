@@ -33,4 +33,5 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
+  plugins: [react(), commonjs()],
 });
