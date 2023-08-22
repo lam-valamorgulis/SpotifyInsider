@@ -11,5 +11,20 @@ export default defineConfig({
     alias: {
       './runtimeConfig': './runtimeConfig.browser',
     },
-  }
+  },
+  optimizeDeps: {
+        esbuildOptions: {
+            // Node.js global to browser globalThis
+            define: {
+                global: 'globalThis'
+            },
+            // Enable esbuild polyfill plugins
+            plugins: [
+                NodeGlobalsPolyfillPlugin({
+                    buffer: true
+                })
+            ]
+        }
+    }
+
 })
