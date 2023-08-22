@@ -62,7 +62,6 @@ export default defineConfig({
     }),
     ,
     react(),
-    rollupNodePolyFill(),
   ],
   // resolve: {
   //   alias: {
