@@ -12,7 +12,7 @@ const getHeaders = (token) => ({
 const requestOptions = {
   headers: {
     'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')),
-  },
+  }
 };
 
 export const getTokenAccessThunk = async (codeAuth, thunkAPI) => {
@@ -23,7 +23,7 @@ export const getTokenAccessThunk = async (codeAuth, thunkAPI) => {
     'redirect_uri': "https://spotifyinsider.laamdang.repl.co/callback",
   });
 
-  return fetchApi(url, 'POST', requestOptions.headers, body, thunkAPI);
+  return fetchApi(url, 'POST', requestOptions.headers, body, thunkAPI)
 };
 
 export const getUserThunk = async (_, thunkAPI) => {
