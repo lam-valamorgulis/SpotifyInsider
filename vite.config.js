@@ -63,6 +63,9 @@ export default defineConfig({
     ,
     react(),
   ],
+  server: {
+    host: '0.0.0.0',
+  },
   // resolve: {
   //   alias: {
   //     // This Rollup aliases are extracted from @esbuild-plugins/node-modules-polyfill,
