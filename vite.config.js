@@ -18,6 +18,12 @@ export default defineConfig({
       plugins: [nodePolyfills()],
     },
   },
+  rollup({
+    entry: 'main.js',
+    plugins: [
+      nodePolyfills( /* options */ )
+    ]
+  }),
   plugins: [
     nodePolyfills({
       // To exclude specific polyfills, add them to this list.
@@ -33,7 +39,6 @@ export default defineConfig({
       // Whether to polyfill `node:` protocol imports.
       protocolImports: true,
     }),
-    plugins: [react()],
   ],
   plugins: [react(), commonjs(), nodePolyfills()],
   resolve: {
