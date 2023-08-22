@@ -39,9 +39,10 @@
 // };
 
 // import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
+// import environment from 'vite-plugin-environment';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import EnvironmentPlugin from 'vite-plugin-environment';
+// import EnvironmentPlugin from 'vite-plugin-environment';
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
 // yarn add --dev @esbuild-plugins/node-modules-polyfill
 import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill';
@@ -54,13 +55,6 @@ import svgrPlugin from 'vite-plugin-svgr';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    EnvironmentPlugin(
-      {
-        REACT_APP_BLOCKCHAIN_BASE_URL: undefined,
-        STATE: undefined,
-      },
-      { loadEnvFiles: true }
-    ),
     svgrPlugin({
       svgrOptions: {
         icon: true,
