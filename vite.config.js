@@ -35,16 +35,17 @@ export default defineConfig({
   ],
   plugins: [react(), commonjs()],
   resolve: {
-  alias: {
-    process: "process/browser",
-    buffer: "buffer",
-    crypto: "crypto-browserify",
-    stream: "stream-browserify",
-    assert: "assert",
-    http: "stream-http",
-    https: "https-browserify",
-    os: "os-browserify",
-    url: "url",
-    util: "util",
-  },
+    alias: {
+        process: "process/browser",
+        buffer: "buffer",
+        crypto: "crypto-browserify",
+        stream: "stream-browserify",
+        assert: "assert",
+        http: "stream-http",
+        https: "https-browserify",
+        os: "os-browserify",
+        url: "url",
+        util: "util",
+    },
+  }
 });
