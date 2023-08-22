@@ -1,4 +1,4 @@
-import { GlobalsPolyfills } from '@esbuild-plugins/node-globals-polyfill';
+import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
 import react from "@vitejs/plugin-react";
 import notifier from "vite-plugin-notifier";
 import nodeGlobalsPolyfill from '@esbuild-plugins/node-globals-polyfill';
