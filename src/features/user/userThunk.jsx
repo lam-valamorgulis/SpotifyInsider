@@ -20,7 +20,7 @@ export const getTokenAccessThunk = async (codeAuth, thunkAPI) => {
   const body = new URLSearchParams({
     'grant_type': 'authorization_code',
     'code': codeAuth,
-    'redirect_uri': "https://spotifyinsider.laamdang.repl.co/callback",
+    'redirect_uri': "https://spotify-insider.vercel.app/callback",
   });
 
   return fetchApi(url, 'POST', requestOptions.headers, body, thunkAPI)
