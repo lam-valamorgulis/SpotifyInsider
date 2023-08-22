@@ -7,13 +7,8 @@ import nodeGlobalsPolyfill from '@esbuild-plugins/node-globals-polyfill';
 export default {
   plugins: [react(), 
             notifier(),
-            GlobalsPolyfills({
-              process: true,
-              buffer: true,
-              global: true,
-              dir: false,
-            }),
-          nodeGlobalsPolyfill()],
+            GlobalsPolyfills(),
+            nodeGlobalsPolyfill()],
   server: {
     host: '0.0.0.0',
   },
