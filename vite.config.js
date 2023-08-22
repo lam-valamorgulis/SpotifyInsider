@@ -5,6 +5,7 @@ import nodePolyfills from "rollup-plugin-polyfill-node";
 import { defineConfig } from "vite";
 import { nodeModulesPolyfillPlugin } from "esbuild-plugins-node-modules-polyfill";
 import {nodeResolve} from '@rollup/plugin-node-resolve';
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
   optimizeDeps: {
