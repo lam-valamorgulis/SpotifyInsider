@@ -33,6 +33,7 @@ export default defineConfig({
       // Whether to polyfill `node:` protocol imports.
       protocolImports: true,
     }),
+    plugins: [react()],
   ],
   plugins: [react(), commonjs(), nodePolyfills()],
   resolve: {
