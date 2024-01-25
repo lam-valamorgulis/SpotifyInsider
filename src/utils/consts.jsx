@@ -56,7 +56,9 @@ const exchangeToken = async (refreshToken) => {
     const resp = await fetch('https://accounts.spotify.com/api/token', {
       method: 'POST',
       headers: {
-        'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64'))
+        'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')),
+        'Content-Type': 'application/json', // Add this line
+
       },
       body: new URLSearchParams({
         'grant_type': 'refresh_token',
