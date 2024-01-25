@@ -57,7 +57,9 @@ const exchangeToken = async (refreshToken) => {
       method: 'POST',
       headers: {
         'Authorization': 'Basic ' + (new Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET).toString('base64')),
-        'Content-Type': 'application/json', // Add this line
+        'Content-Type': 'application/json', 
+        'accept' : 'application/json'
+
 
       },
       body: new URLSearchParams({
